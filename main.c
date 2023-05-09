@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:20:03 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 05:37:31 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:15:07 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		main(void)
 		add_history(input);
 		get_input(input);
 		check_input();
+		ft_lstfree();
 	}
 	return (0);
 }

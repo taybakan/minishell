@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:04:43 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 06:13:10 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:59:10 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ int		ft_no_nl(char *str)
 
 void	ft_echo(void)
 {
+	t_list	*first;
 	char	*str;
 	int		flag;
 	int		i;
 
 	flag = 0;
+	first = data.t_mini;
 	if (data.t_mini->next)
 		flag = ft_no_nl(data.t_mini->next->content);
 	if (flag && data.t_mini->next)
@@ -80,4 +82,5 @@ void	ft_echo(void)
 	}
 	if (!flag)
 		printf("\n");
+	data.t_mini = first;
 }
