@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:04:43 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 05:53:33 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 06:13:10 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		ft_findenv(char *str)
 			printf("%s", env + ft_strlen(str));
 	}
 	data.t_environ = first;
+	free(env);
 	return (ft_strlen(str) - 1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:20:14 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 05:21:38 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 06:15:23 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 struct	s_data
 {
-	struct s_list	*t_environ;
-	struct s_list	*t_mini;
+	t_list	*t_environ;
+	t_list	*t_mini;
 } data;	
 
 int		get_input(char *input);

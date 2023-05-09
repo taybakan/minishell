@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 05:03:27 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 06:08:27 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 06:52:37 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	ft_unset(void)
 	while(data.t_environ->next)
 	{
 		data.t_environ = data.t_environ->next;
-		if (!ft_strncmp(data.t_mini->next->content, data.t_environ->next->content, ft_strlen(data.t_mini->content)))
-			data.t_environ->next = data.t_environ->next->next;
+		if(data.t_environ->next)
+		{	
+			if (!ft_strncmp(data.t_mini->next->content, data.t_environ->next->content, ft_strlen(data.t_mini->content)))
+				data.t_environ->next = data.t_environ->next->next;
+		}
 	}
 	data.t_environ = first;
 }

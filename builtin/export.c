@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 04:41:50 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 06:07:42 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 06:13:37 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,5 @@ void	ft_export(void)
 		data.t_environ = data.t_environ->next;
 	ft_lstadd_back(&data.t_environ, ft_lstnew(export));
 	data.t_environ = first;
+	free(export);
 }
