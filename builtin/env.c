@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:05:10 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 00:06:22 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 05:50:41 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 void	ft_env(void)
 {
-	int	ind;
-
-	ind = 0;
-	while (data.environ[ind])
+	struct s_list	*first;
+	
+	first = data.t_environ;
+	while (data.t_environ->next)
 	{
-		printf("%s\n", data.environ[ind]);
-		ind++;
+		data.t_environ = data.t_environ->next;
+		printf("%s\n", data.t_environ->content);
 	}
+	data.t_environ = first;
 }

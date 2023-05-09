@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:13:04 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 01:18:23 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 06:07:08 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int		check_input()
 		ft_exit();
 	else if (!ft_strncmp("echo\0", data.t_mini->content, 5))
 		ft_echo();
+	else if (!ft_strncmp("export\0", data.t_mini->content, 7))
+		ft_export();
+	else if (!ft_strncmp("unset\0", data.t_mini->content, 6))
+		ft_unset();
 	else if (data.t_mini->content == NULL)
 		return (1);
 	else

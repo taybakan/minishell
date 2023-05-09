@@ -1,12 +1,12 @@
 NAME	= minishell
 
-SRC		= main.c input.c ./builtin/env.c ./builtin/pwd.c ./builtin/exit.c ./builtin/echo.c
+SRC		= main.c input.c ./builtin/env.c ./builtin/pwd.c ./builtin/exit.c ./builtin/echo.c ./builtin/export.c ./builtin/unset.c
 
 LIB		= ./lib/libft/libft.a
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 
 RLFLAGS	= -lreadline
 

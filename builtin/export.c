@@ -1,34 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pwd.c                                              :+:      :+:    :+:   */
+/*   export.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/08 22:44:55 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 05:49:33 by taybakan         ###   ########.fr       */
+/*   Created: 2023/05/09 04:41:50 by taybakan          #+#    #+#             */
+/*   Updated: 2023/05/09 06:07:42 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	ft_pwd(void)
+int		is_equal(char *export)
 {
-	char			*pwd;
+	int	ind;
+
+	ind = 0;
+	while (export[ind])
+	{
+		if(export[ind] == '=')
+			return (1);
+		ind++;
+	}
+	return (0);
+}
+
+void	ft_export(void)
+{
+	char			*export;
 	struct s_list	*first;
 
-	pwd = malloc(1);
-	pwd[0] = '\0';
-	first = data.t_environ;
-	while (data.t_environ->next)
-	{
-		if (!ft_strncmp("PWD=", (char *)data.t_environ->content, 4))
-			pwd = ft_strdup(data.t_environ->content);
-		data.t_environ = data.t_environ->next;
-	}
-	if (!pwd)
+	export = ft_strdup(data.t_mini->next->content);
+	if (!is_equal(export))
 		return ;
-	printf("%s\n", pwd + 4);
+	first = data.t_environ;
+	while(data.t_environ->next)
+		data.t_environ = data.t_environ->next;
+	ft_lstadd_back(&data.t_environ, ft_lstnew(export));
 	data.t_environ = first;
-	free(pwd);
 }

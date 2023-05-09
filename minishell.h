@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:20:14 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 00:00:47 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 05:21:38 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 struct	s_data
 {
-	char			**environ;
+	struct s_list	*t_environ;
 	struct s_list	*t_mini;
 } data;	
 
@@ -32,5 +32,10 @@ void	ft_env(void);
 void	ft_pwd(void);
 void	ft_exit(void);
 void	ft_echo(void);
+int		ft_findenv(char *env);
+int		ft_no_nl(char *str);
+void	ft_export(void);
+int		is_equal(char *export);
+void	ft_unset(void);
 
 #endif

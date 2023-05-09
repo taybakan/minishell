@@ -6,24 +6,27 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:04:43 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 01:47:55 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/09 05:53:33 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int		ft_findenv(char *env)
+int		ft_findenv(char *str)
 {
-	int	ind;
+	char	*env;
+	struct s_list *first;
 
-	ind = 0;
-	while (data.environ[ind])
+	first = data.t_environ;
+	while (data.t_environ->next)
 	{
-		if (!ft_strncmp(env + 1, data.environ[ind], (ft_strlen(env) - 1)))
-			printf("%s", data.environ[ind] + ft_strlen(env));
-		ind++;
+		data.t_environ = data.t_environ->next;
+		env = ft_strdup(data.t_environ->content);
+		if (!ft_strncmp(str + 1, env, (ft_strlen(str) - 1)))
+			printf("%s", env + ft_strlen(str));
 	}
-	return (ft_strlen(env) - 1);
+	data.t_environ = first;
+	return (ft_strlen(str) - 1);
 }
 
 int		ft_no_nl(char *str)
@@ -41,8 +44,9 @@ int		ft_no_nl(char *str)
 				return (0);
 			i++;
 		}
+		return (1);
 	}
-	return (1);
+	return (0);
 }
 
 void	ft_echo(void)
@@ -51,7 +55,9 @@ void	ft_echo(void)
 	int		flag;
 	int		i;
 
-	flag = ft_no_nl(data.t_mini->next->content);
+	flag = 0;
+	if (data.t_mini->next)
+		flag = ft_no_nl(data.t_mini->next->content);
 	if (flag && data.t_mini->next)
 		data.t_mini = data.t_mini->next;
 	while (data.t_mini->next)
