@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 20:20:14 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 15:16:14 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:22:22 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,11 @@ void	ft_export(void);
 int		is_equal(char *export);
 void	ft_unset(void);
 void	ft_lstfree(void);
+char	*check_access(char *cmd, char *all_path);
+char	*check_env(char *s);
+char	**get_arg(void);
+int		ft_execve(void);
+char	**get_env(void);
+void	get_environ();
 
 #endif

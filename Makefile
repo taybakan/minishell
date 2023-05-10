@@ -1,6 +1,6 @@
 NAME	= minishell
 
-SRC		= main.c input.c ./builtin/env.c ./builtin/pwd.c ./builtin/exit.c ./builtin/echo.c ./builtin/export.c ./builtin/unset.c free.c
+SRC		= main.c input.c ./builtin/env.c ./builtin/pwd.c ./builtin/exit.c ./builtin/echo.c ./builtin/export.c ./builtin/unset.c free.c execve.c
 
 LIB		= ./lib/libft/libft.a
 

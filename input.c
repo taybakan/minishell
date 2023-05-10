@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:13:04 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 14:13:53 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:16:39 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ int		get_input(char *input)
 {
 	char	**split;
 	int		i;
+	t_list	*first;
 
 	i = 0;
 	split = ft_split(input, ' ');
 	data.t_mini = ft_lstnew(split[0]);
+	first = data.t_mini;
 	i++;
 	while (split[i])
 	{
 		ft_lstadd_back(&data.t_mini, ft_lstnew(split[i]));
 		i++;
 	}
+	data.t_mini = first;
 	return (0);
 }
 
@@ -46,6 +49,6 @@ int		check_input()
 	else if (data.t_mini->content == NULL)
 		return (1);
 	else
-		printf("Command Not Found: %s\n", data.t_mini->content);
+		ft_execve();
 	return (0);
 }

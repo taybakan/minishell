@@ -6,7 +6,7 @@
 /*   By: taybakan <taybakan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 04:41:50 by taybakan          #+#    #+#             */
-/*   Updated: 2023/05/09 15:14:22 by taybakan         ###   ########.fr       */
+/*   Updated: 2023/05/10 21:21:12 by taybakan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,17 @@ int		is_equal(char *export)
 void	ft_export(void)
 {
 	char			*export;
-
-	if (data.t_mini->next)
+	t_list			*first;
+	
+	first = data.t_mini;
+	while (data.t_mini->next)
+	{
 		export = ft_strdup(data.t_mini->next->content);
-	else
-		return ;
-	printf("%s\n", export);
-	if (!is_equal(export))
-		return ;
-	ft_lstadd_back(&data.t_environ, ft_lstnew(export));
-	free(export);
+		printf("%s\n", export);
+		if (is_equal(export))
+			ft_lstadd_back(&data.t_environ, ft_lstnew(export));
+		data.t_mini = data.t_mini->next;
+		free(export);
+	}
+	data.t_mini = first;
 }
